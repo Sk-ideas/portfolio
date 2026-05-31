@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sasikumar || Laravel Engineer</title>
+    <meta content="Backend-focused Laravel engineer with 3+ years of experience building secure, workflow-driven enterprise applications." name="description" />
+    <meta content="Laravel, PHP, Backend Engineer, Full Stack Developer, Nagercoil" name="keywords" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sk-ideas.github.io/portfolio/">
+    <meta property="og:title" content="Sasikumar || Laravel Engineer">
+    <meta property="og:description" content="Backend-focused Laravel engineer with 3+ years of experience building secure, workflow-driven enterprise applications.">
+    <meta property="og:image" content="https://sk-ideas.github.io/portfolio/IMG_0809-01-min.webp">
+    <link rel="canonical" href="https://sk-ideas.github.io/portfolio/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sasi kumar S",
+      "jobTitle": "Backend Laravel Engineer",
+      "url": "https://sk-ideas.github.io/portfolio/",
+      "image": "https://sk-ideas.github.io/portfolio/IMG_0809-01-min.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/sasikumar-php-developer/",
+        "https://x.com/Mr_soul_knight"
+      ],
+      "knowsAbout": ["Laravel", "PHP", "Backend Development", "CodeIgniter", "MySQL"]
+    }
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="SK.jpg" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="hero-bg.webp" as="image" media="(min-width: 769px)">
+    <link rel="preload" href="hero-bg-mobile.jpg" as="image" media="(max-width: 768px)">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Google Fonts — non-blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Non-critical CSS — deferred -->
+    <link href="aos/aos.css" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="boxicons/css/boxicons.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="glightbox/css/glightbox.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="swiper/swiper-bundle.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
+    <style>
+      #hero {
+        width: 100%;
+        height: 100vh;
+        background: url("hero-bg.webp") top center;
+        background-size: cover;
+      }
+
+      @media (max-width: 768px) {
+        #hero {
+          background: url("hero-bg-mobile.jpg") center center !important;
+          background-size: cover !important;
+          text-align: center;
+          padding: 0 15px;
+          height: 70vh;
+        }
+        #hero:before {
+          content: "";
+          background: rgba(5, 13, 24, 0.55);
+          position: absolute;
+          bottom: 30%;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+        }
+        #hero .hero-container {
+          position: relative;
+          z-index: 2;
+          min-width: 280px;
+          margin-top: 25%;
+          max-width: 90%;
+        }
+        #hero h1 {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+        #hero p {
+          font-size: 1rem;
+        }
+        .hero-container {
+          width: 100%;
+        }
+        .cta-group .btn {
+          font-size: 0.9rem;
+          padding: 0.5rem 1.2rem !important;
+        }
+      }
+
+      @media (max-width: 576px) {
+        #hero {
+          background: url("hero-bg-mobile.jpg") center center no-repeat !important;
+          background-size: cover !important;
+          height: 65vh;
+        }
+        #hero .hero-container {
+          margin-top: 60%;
+        }
+        #hero h1 {
+          font-size: 1.8rem;
+        }
+      }
+
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        height: 100%;
+        border-top: 4px solid #149ddd;
+      }
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 32px rgba(20,157,221,0.15);
+      }
+      .project-card .card-body {
+        padding: 1.5rem;
+      }
+      .project-card .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #173b6c;
+      }
+      .project-card .card-subtitle {
+        font-size: 0.9rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        color: #6c757d;
+      }
+      .project-card .card-text {
+        color: #4a4a4a;
+        line-height: 1.6;
+      }
+      .project-card ul {
+        padding-left: 1.2rem;
+        margin-top: 0.5rem;
+        color: #4a4a4a;
+      }
+      .project-card li {
+        margin-bottom: 0.3rem;
+      }
+
+      .experience-item {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border-left: 4px solid #173b6c;
+        transition: all 0.3s ease;
+      }
+      .experience-item:hover {
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      }
+      .experience-item h4 {
+        font-weight: 600;
+        color: #173b6c;
+        margin-bottom: 0.25rem;
+      }
+      .experience-item .company {
+        font-weight: 500;
+        color: #4a4a4a;
+        margin-bottom: 0.5rem;
+      }
+      .experience-item .date {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-bottom: 1rem;
+        display: inline-block;
+        background: #e9ecef;
+        padding: 0.2rem 0.8rem;
+        border-radius: 20px;
+      }
+      .experience-item ul {
+        margin-bottom: 0;
+        padding-left: 1.2rem;
+      }
+      .experience-item li {
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin: 0.25rem;
+        background: #e9ecef;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #173b6c;
+        transition: all 0.3s ease;
+      }
+      .skill-badge:hover {
+        background: linear-gradient(135deg, #149ddd, #173b6c);
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(20,157,221,0.3);
+      }
+      .skill-category {
+        margin-bottom: 2rem;
+      }
+      .skill-category h4 {
+        color: #173b6c;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 0.5rem;
+      }
+
+      .contact-info {
+        text-align: center;
+        padding: 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+      .contact-card:hover {
+        background: #e9ecef;
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      }
+      .contact-info i {
+        font-size: 2rem;
+        color: #173b6c;
+        margin-bottom: 1rem;
+      }
+      .contact-info h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #173b6c;
+        margin-bottom: 0.5rem;
+      }
+      .contact-info p {
+        margin-bottom: 0;
+        color: #4a4a4a;
+      }
+
+      .summary-box {
+        background: linear-gradient(135deg, #173b6c 0%, #1a5276 50%, #149ddd 100%);
+        color: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .summary-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .summary-box p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 0;
+        color: rgba(255,255,255,0.95);
+        position: relative;
+        z-index: 1;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+      .section-title {
+        text-align: center;
+        padding-bottom: 30px;
+      }
+      .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #173b6c;
+      }
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, #149ddd, #173b6c);
+        bottom: 0;
+        left: calc(50% - 25px);
+      }
+
+      @keyframes subtlePulse {
+        0% { box-shadow: 0 0 0 0 rgba(20,157,221,0.4); }
+        70% { box-shadow: 0 0 0 12px rgba(20,157,221,0); }
+        100% { box-shadow: 0 0 0 0 rgba(20,157,221,0); }
+      }
+      .cta-group .btn-primary {
+        animation: subtlePulse 2.5s ease-in-out infinite;
+      }
+      .cta-group .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(20,157,221,0.4);
+        animation: none;
+      }
+      .cta-group .btn-outline-light:hover {
+        background: rgba(255,255,255,0.15);
+        transform: translateY(-3px);
+      }
+
+      .contact-form .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 14px 18px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background: #fff;
+      }
+      .contact-form .form-control:focus {
+        border-color: #149ddd;
+        box-shadow: 0 0 0 3px rgba(20,157,221,0.15);
+        outline: none;
+      }
+      .contact-form .form-control::placeholder {
+        color: #adb5bd;
+      }
+      .contact-form textarea {
+        resize: none;
+      }
+      #cf-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(20,157,221,0.35);
+      }
+
+      @keyframes slideIn {
+        from { 
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to { 
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slideOut {
+        from { 
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to { 
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
+      
+      #successToast {
+        font-family: 'Poppins', sans-serif;
+      }
+      #successToast div {
+        min-width: 300px;
+        max-width: 500px;
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      #successToast i {
+        min-width: 24px;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+      #successToast span {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <header id="header">
+      <div class="d-flex flex-column">
+        <div class="profile">
+          <img
+            src="IMG_0809-01-min.webp"
+            alt="Sasi kumar S - Profile Picture"
+            class="img-fluid rounded-circle"
+            width="120"
+            height="120"
+          />
+          <h1 class="text-light"><a href="index.html">Sasi kumar S</a></h1>
+          <div class="social-links mt-3 text-center">
+            <a href="mailto:sasikumar150500@gmail.com" class="email"><i class="bx bx-envelope"></i></a>
+            <a href="https://wa.me/916383201475" class="whatsapp" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+            <a href="https://www.instagram.com/mr.soul_knight/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/sasi-kumar-43b259228" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+            <a href="#" id="shareButton" class="share" title="Share this portfolio"><i class="bx bx-share-alt"></i></a>
+          </div>
+        </div>
+
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+            <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-code-block"></i> <span>Skills</span></a></li>
+            <li><a href="#experience" class="nav-link scrollto"><i class="bx bx-briefcase"></i> <span>Experience</span></a></li>
+            <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-layer"></i> <span>Projects</span></a></li>
+            <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+            <li><a href="Sasi_kumar_S.pdf" class="nav-link" download="Sasi_kumar_Resume.pdf"><i class="bx bx-file-blank"></i> <span>Download Resume</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container">
+        <h1>Sasi kumar S</h1>
+        <p>I'm <span class="typed" data-typed-items="Backend Laravel Engineer, Full Stack Developer, Enterprise Application Architect"></span></p>
+        <div class="cta-group mt-4 d-flex justify-content-center flex-wrap gap-3">
+          <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-4 py-2 fw-bold shadow-sm" style="background-color: #149ddd; border: none;">Hire Me</a>
+          <a href="Sasi_kumar_S.pdf" target="_blank" class="btn btn-outline-light btn-lg rounded-pill px-4 py-2 fw-bold shadow-sm" style="border-width: 2px;">View Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <main id="main">
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>About</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+              <img src="IMG_0809-01-min.webp" class="img-fluid" alt="Sasi kumar S" loading="lazy" decoding="async" width="600" height="800" />
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+              <h3>Backend-Focused Laravel Engineer</h3>
+              <div class="summary-box">
+                <p>Backend-focused Laravel engineer with 3+ years of experience building secure, workflow-driven enterprise applications across Governance, CRM, LMS, Inventory, and Academic systems. Experienced in architecting role-based systems, encrypted document lifecycle management, RESTful APIs, cron-based automation, and optimized relational database design. Strong ownership mindset — independently handling requirement analysis, architecture planning, deployment, and post-production support.</p>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>15 May 2000</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 6383201475</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Nagercoil, India</span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>26</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B.E-Computer Science</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>sasikumar150500@gmail.com</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Experience:</strong> <span>3+ years</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Technical Skills</h2>
+            <p>Comprehensive expertise in enterprise application development with focus on security, automation, and scalable architecture.</p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+              <div class="skill-category">
+                <h4>Backend Development</h4>
+                <div>
+                  <span class="skill-badge">PHP</span>
+                  <span class="skill-badge">Laravel</span>
+                  <span class="skill-badge">CodeIgniter</span>
+                  <span class="skill-badge">RESTful APIs</span>
+                  <span class="skill-badge">SOAP</span>
+                  <span class="skill-badge">MySQL</span>
+                  <span class="skill-badge">Query Optimization</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Security & Architecture</h4>
+                <div>
+                  <span class="skill-badge">Role-Based Access Control (RBAC)</span>
+                  <span class="skill-badge">Encrypted Content Handling</span>
+                  <span class="skill-badge">Document Lifecycle Management</span>
+                  <span class="skill-badge">Workflow Automation</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Automation & Deployment</h4>
+                <div>
+                  <span class="skill-badge">Cron Jobs</span>
+                  <span class="skill-badge">Scheduled Workflows</span>
+                  <span class="skill-badge">WHM</span>
+                  <span class="skill-badge">cPanel</span>
+                  <span class="skill-badge">Plesk</span>
+                  <span class="skill-badge">Shared Hosting</span>
+                  <span class="skill-badge">Production Release</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="skill-category">
+                <h4>Frontend & Tools</h4>
+                <div>
+                  <span class="skill-badge">JavaScript</span>
+                  <span class="skill-badge">AJAX</span>
+                  <span class="skill-badge">jQuery</span>
+                  <span class="skill-badge">HTML5</span>
+                  <span class="skill-badge">CSS3</span>
+                  <span class="skill-badge">Bootstrap</span>
+                  <span class="skill-badge">Vite</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Version Control & Integration</h4>
+                <div>
+                  <span class="skill-badge">Git</span>
+                  <span class="skill-badge">GitHub</span>
+                  <span class="skill-badge">Third-Party APIs</span>
+                  <span class="skill-badge">Payment Gateway Integration</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Enterprise Domains</h4>
+                <div>
+                  <span class="skill-badge">Governance Systems</span>
+                  <span class="skill-badge">CRM</span>
+                  <span class="skill-badge">LMS</span>
+                  <span class="skill-badge">Inventory Management</span>
+                  <span class="skill-badge">Academic Systems</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="resume">
+        <div class="container">
+          <div class="section-title">
+            <h2>Professional Experience</h2>
+            <p>Track record of delivering enterprise-scale applications with end-to-end ownership.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-12" data-aos="fade-up">
+              <div class="experience-item">
+                <h4>Backend Laravel Engineer</h4>
+                <div class="company">ISKCON Bangalore</div>
+                <span class="date">December 2025 – Present</span>
+                <ul>
+                  <li>Architecting governance and resolution workflow systems with encrypted document lifecycle management and role-based access control.</li>
+                  <li>Implementing automated tracking, recurring reminders, and cron-based workflow processing.</li>
+                </ul>
+              </div>
+              <div class="experience-item">
+                <h4>Full-Stack Developer</h4>
+                <div class="company">Ziga Infotech Ventures Pvt Ltd</div>
+                <span class="date">April 2023 – June 2025</span>
+                <ul>
+                  <li>Developed enterprise applications across CRM, LMS, and inventory systems using Laravel and CodeIgniter.</li>
+                  <li>Built REST APIs, Excel bulk upload pipelines, and dynamic PDF generation modules.</li>
+                  <li>Handled production deployment, hosting management, and MySQL query optimization.</li>
+                </ul>
+              </div>
+              <div class="experience-item">
+                <h4>Freelance Developer</h4>
+                <div class="company">Women's Christian College</div>
+                <span class="date">August 2025 – November 2025</span>
+                <ul>
+                  <li>Built and deployed an academic management system covering admissions, student records, fee tracking, and reporting dashboards.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="facts section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Key Projects</h2>
+            <p>Enterprise applications built with focus on security, automation, and scalability.</p>
+          </div>
+          <div class="row project-cards">
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Governing Body Commission</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Enterprise Governance System</h6>
+                  <ul>
+                    <li>Secure workflow platform with structured resolution lifecycle tracking.</li>
+                    <li>Encrypted document management integrated with role-based access controls.</li>
+                    <li>Automated follow-ups and deadline notifications via cron jobs.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Asset Management System</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Enterprise Asset Tracking</h6>
+                  <ul>
+                    <li>Centralized asset allocation and tracking platform.</li>
+                    <li>Implemented maintenance scheduling and recurring audit automation.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">LMS & Admission Management</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Spark Learning</h6>
+                  <ul>
+                    <li>Built admission lifecycle workflows, fee structures, payment tracking, batch scheduling, and timetable modules.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">CRM & Hierarchical Authority Management</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Structured Governance</h6>
+                  <ul>
+                    <li>Designed structured ward, district, and subdistrict categorization.</li>
+                    <li>Implemented controlled access modules for authority-level updates.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Inventory & Migration Systems</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">CodeIgniter</h6>
+                  <ul>
+                    <li>Developed structured inventory lifecycle management system using CodeIgniter.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+              <div class="card project-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">PS Granites</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">API & PDF Generation</h6>
+                  <ul>
+                    <li>Working on RESTful APIs to handle Excel uploads, process data insertion into tables, and generate PDFs containing more than 10 images per record.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resume" class="resume">
+        <div class="container">
+          <div class="section-title">
+            <h2>Education & Training</h2>
+            <p>Academic background and professional training programs.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>Bachelor of Computer Science & Engineering</h4>
+                <h5>2018 - 2022</h5>
+                <p><em>Ponjesly College of Engineering, Nagercoil, Kanyakumari</em></p>
+                <p>CGPA: 7.77/10</p>
+              </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Training Programs</h3>
+              <div class="resume-item">
+                <h4>Full Stack Developer – PHP</h4>
+                <h5>2022</h5>
+                <p><em>SCOPE INDIA Fresher Training</em></p>
+                <p>Duration: 4 Months</p>
+              </div>
+              <div class="resume-item">
+                <h4>Android Inplant Training</h4>
+                <h5>2019</h5>
+                <p><em>UniqTechnology, Chennai</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>I'm currently looking for new opportunities and would love to connect. Whether you have a project to discuss or just want to say hello, feel free to reach out!</p>
+          </div>
+          <div class="row align-items-stretch" data-aos="fade-in">
+            <div class="col-lg-5 d-flex flex-column mb-4">
+              <div class="row mb-4">
+                <div class="col-sm-6">
+                  <a href="mailto:sasikumar150500@gmail.com" class="text-decoration-none d-block h-100">
+                    <div class="contact-info contact-card h-100">
+                      <i class="bi bi-envelope"></i>
+                      <h4>Email</h4>
+                      <p style="font-size: 0.7rem; overflow-wrap: anywhere; line-height: 1.4;">sasikumar150500@gmail.com</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-6">
+                  <a href="https://wa.me/916383201475" target="_blank" class="text-decoration-none d-block h-100">
+                    <div class="contact-info contact-card h-100">
+                      <i class="bi bi-whatsapp"></i>
+                      <h4>WhatsApp</h4>
+                      <p>+91 6383201475</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="flex-grow-1">
+                <iframe src="https://maps.google.com/maps?q=Nagercoil,Tamil+Nadu,India&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border: 0; width: 100%; height: 100%; min-height: 250px; border-radius: 12px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="col-lg-7 d-flex flex-column mb-4">
+              <form id="contactForm" class="contact-form d-flex flex-column flex-grow-1">
+                <input type="hidden" name="_next" value="https://sk-ideas.github.io/portfolio/#contact">
+                <input type="hidden" name="_subject" value="Portfolio Contact Form Submission">
+                <input type="hidden" name="_template" value="box">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" id="cf-name" name="name" class="form-control" placeholder="Your Name" required />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <input type="email" id="cf-email" name="email" class="form-control" placeholder="Your Email" required />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="text" id="cf-subject" name="subject" class="form-control" placeholder="Subject" required />
+                </div>
+                <div class="mb-3 flex-grow-1">
+                  <textarea id="cf-message" name="message" class="form-control h-100" rows="6" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" id="cf-submit" class="btn btn-primary px-5 py-2 rounded-pill fw-bold" style="background-color: #149ddd; border: none; transition: all 0.3s ease;">
+                    <i class="bi bi-send me-2"></i>Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="successToast" style="position: fixed; top: 30px; right: 30px; z-index: 99999; display: none;">
+        <div style="background: linear-gradient(135deg, #28a745, #20c997); color: #fff; padding: 18px 28px; border-radius: 12px; box-shadow: 0 8px 30px rgba(40,167,69,0.35); display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 1rem; animation: slideIn 0.4s ease;">
+          <i class="bi bi-check-circle-fill" style="font-size: 1.4rem;"></i>
+          <span>Message sent successfully! I'll get back to you soon.</span>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">&copy; Copyright <strong><span>Sasi kumar S</span></strong></div>
+        <div class="credits">Designed by <a href="#">Sasi Kumar S</a></div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="purecounter/purecounter_vanilla.js" defer></script>
+    <script src="aos/aos.js" defer></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="glightbox/js/glightbox.min.js" defer></script>
+    <script src="isotope-layout/isotope.pkgd.min.js" defer></script>
+    <script src="swiper/swiper-bundle.min.js" defer></script>
+    <script src="typed.js/typed.umd.js" defer></script>
+    <script src="waypoints/noframework.waypoints.js" defer></script>
+    <script src="main.js" defer></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+      const contactForm = document.getElementById('contactForm');
+      const successToast = document.getElementById('successToast');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          setTimeout(function() {
+            if (window.location.href.includes('success=true') || window.location.hash.includes('contact')) {
+              showToastMessage();
+            }
+          }, 500);
+        });
+      }
+      if (window.location.href.includes('success=true')) {
+        showToastMessage();
+        const newUrl = window.location.href.split('?')[0] + '#contact';
+        window.history.replaceState({}, document.title, newUrl);
+      }
+      function showToastMessage() {
+        if (successToast) {
+          const inner = successToast.querySelector('div');
+          inner.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+          inner.innerHTML = '<i class="bi bi-check-circle-fill" style="font-size:1.4rem;"></i><span>Message sent successfully! I\'ll get back to you soon.</span>';
+          successToast.style.display = 'block';
+          inner.style.animation = 'slideIn 0.4s ease';
+          setTimeout(() => {
+            inner.style.animation = 'slideOut 0.4s ease forwards';
+            setTimeout(() => { successToast.style.display = 'none'; }, 400);
+          }, 4000);
+        }
+      }
+    </script>
+  </body>
+</html>

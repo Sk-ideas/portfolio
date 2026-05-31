@@ -1,0 +1,5 @@
+# Temp/dev files
+*.log
+*.tmp
+shot*.php
+tmp*.php
