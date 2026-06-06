@@ -613,3 +613,142 @@
   }
 
 })();
+
+// ===== AI Chat Widget =====
+(function () {
+  var fab        = document.getElementById('chat-fab');
+  var panel      = document.getElementById('chat-panel');
+  var closeBtn   = document.getElementById('chat-close-btn');
+  var msgsEl     = document.getElementById('chat-messages');
+  var inputEl    = document.getElementById('chat-input');
+  var sendBtn    = document.getElementById('chat-send');
+  var chipsWrap  = document.getElementById('chat-chips');
+  var chips      = document.querySelectorAll('.chat-chip');
+
+  if (!fab) return;
+
+  var GROQ_API_KEY = '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';
+
+  var SYSTEM_PROMPT = "You are an AI assistant on Sasi Kumar S's portfolio website. Answer questions about Sasi in a friendly, concise tone. Keep responses under 120 words unless more detail is requested.\n\nABOUT SASI KUMAR S:\nFull Name: Sasi Kumar S | Age: 26 | Location: Nagercoil, Tamil Nadu, India | Email: sasikumar150500@gmail.com | Phone/WhatsApp: +91 6383201475\n\nProfessional Summary: Backend-focused Laravel engineer with 3+ years building secure, workflow-driven enterprise applications. Specialises in RBAC, encrypted document lifecycle, RESTful APIs, cron automation, MySQL optimisation.\n\nCurrent Role: Backend Laravel Engineer at ISKCON Bangalore (Dec 2025–Present). Governance & resolution workflow systems, encrypted doc lifecycle, RBAC, automated reminders.\n\nPrevious: Full-Stack Developer at Ziga Infotech Ventures (Apr 2023–Jun 2025) — CRM, LMS, Inventory apps with Laravel/CodeIgniter, REST APIs, Excel uploads, PDF generation, deployment. Freelance at Women's Christian College (Aug–Nov 2025) — academic management system.\n\nSkills: PHP, Laravel, CodeIgniter, RESTful APIs, SOAP, MySQL, RBAC, Encrypted Content, Workflow Automation, Cron Jobs, WHM, cPanel, JavaScript, jQuery, AJAX, HTML5, CSS3, Bootstrap, Vite, Git, GitHub, Payment Gateway Integration.\n\nProjects: 1) Governing Body Commission — governance workflow, encrypted docs, RBAC. 2) Asset Management System — tracking, audit automation. 3) LMS & Admission Management (Spark Learning). 4) CRM & Hierarchical Authority. 5) Inventory & Migration Systems. 6) PS Granites — REST APIs, Excel upload, PDF generation.\n\nEducation: B.E. Computer Science — Ponjesly College of Engineering (2018–2022, CGPA 7.77). Full Stack PHP Training — SCOPE INDIA (2022). Android Training — UniqTechnology (2019).\n\nSocial: LinkedIn: https://www.linkedin.com/in/sasi-kumar-43b259228 | Portfolio: https://sk-ideas.github.io/portfolio/\n\nIf asked something not covered, say you don't have that detail and suggest contacting Sasi. Never fabricate information.";
+
+  var isOpen     = false;
+  var isLoading  = false;
+  var history    = [];
+  var chipsShown = true;
+
+  var WELCOME = "Hi! I'm Sasi's AI assistant. Ask me anything about his skills, experience, projects, or how to reach him. What would you like to know?";
+
+  function addMsg(text, role) {
+    var d = document.createElement('div');
+    d.className = 'chat-msg ' + role;
+    d.textContent = text;
+    msgsEl.appendChild(d);
+    msgsEl.scrollTop = msgsEl.scrollHeight;
+  }
+
+  function showTyping() {
+    var d = document.createElement('div');
+    d.className = 'chat-typing';
+    d.id = 'chat-typing-ind';
+    d.innerHTML = '<span></span><span></span><span></span>';
+    msgsEl.appendChild(d);
+    msgsEl.scrollTop = msgsEl.scrollHeight;
+  }
+
+  function hideTyping() {
+    var t = document.getElementById('chat-typing-ind');
+    if (t) t.remove();
+  }
+
+  function hideChips() {
+    if (chipsShown) {
+      chipsWrap.style.display = 'none';
+      chipsShown = false;
+    }
+  }
+
+  function openChat() {
+    panel.classList.remove('chat-panel-hidden');
+    isOpen = true;
+    if (msgsEl.children.length === 0) {
+      addMsg(WELCOME, 'bot');
+    }
+    inputEl.focus();
+  }
+
+  function closeChat() {
+    panel.classList.add('chat-panel-hidden');
+    isOpen = false;
+  }
+
+  fab.addEventListener('click', function () {
+    if (isOpen) { closeChat(); } else { openChat(); }
+  });
+
+  closeBtn.addEventListener('click', closeChat);
+
+  function sendMessage(text) {
+    text = text.trim();
+    if (!text || isLoading) return;
+
+    hideChips();
+    addMsg(text, 'user');
+    history.push({ role: 'user', content: text });
+    inputEl.value = '';
+    isLoading     = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    var messages = [{ role: 'system', content: SYSTEM_PROMPT }];
+    history.slice(-10).forEach(function (h) { messages.push(h); });
+
+    fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + GROQ_API_KEY
+      },
+      body: JSON.stringify({
+        model:       'llama-3.3-70b-versatile',
+        messages:    messages,
+        max_tokens:  400,
+        temperature: 0.7
+      })
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      hideTyping();
+      var reply = (data.choices && data.choices[0] && data.choices[0].message.content)
+        || data.error && data.error.message
+        || 'Sorry, something went wrong. Please try again.';
+      addMsg(reply, 'bot');
+      history.push({ role: 'assistant', content: reply });
+    })
+    .catch(function () {
+      hideTyping();
+      addMsg('Oops! Could not connect. Please check your connection and try again.', 'bot');
+    })
+    .finally(function () {
+      isLoading        = false;
+      sendBtn.disabled = false;
+      inputEl.focus();
+    });
+  }
+
+  sendBtn.addEventListener('click', function () {
+    sendMessage(inputEl.value);
+  });
+
+  inputEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(inputEl.value);
+    }
+  });
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      sendMessage(this.getAttribute('data-q'));
+    });
+  });
+}());
