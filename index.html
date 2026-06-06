@@ -795,6 +795,37 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+    <!-- AI Chat Widget -->
+    <div id="ai-chat-widget">
+      <div id="chat-panel" class="chat-panel-hidden" role="dialog" aria-label="AI chat about Sasi">
+        <div class="chat-header">
+          <div class="d-flex align-items-center gap-2">
+            <img src="IMG_0809-01-min.webp" alt="Sasi" class="chat-hdr-avatar" loading="lazy" width="38" height="38">
+            <div>
+              <div class="chat-hdr-name">Sasi's AI Assistant</div>
+              <div class="chat-hdr-status"><span class="chat-dot"></span>Ask anything about Sasi</div>
+            </div>
+          </div>
+          <button id="chat-close-btn" class="chat-x-btn" aria-label="Close chat"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
+        <div id="chat-chips" class="chat-chips">
+          <button class="chat-chip" data-q="What are Sasi's main skills?">Skills</button>
+          <button class="chat-chip" data-q="Tell me about Sasi's work experience">Experience</button>
+          <button class="chat-chip" data-q="What projects has Sasi built?">Projects</button>
+          <button class="chat-chip" data-q="How can I hire or contact Sasi?">Contact</button>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" placeholder="Ask me anything about Sasi…" maxlength="500" autocomplete="off" aria-label="Chat message">
+          <button id="chat-send" aria-label="Send message"><i class="bi bi-send-fill"></i></button>
+        </div>
+      </div>
+      <button id="chat-fab" aria-label="Open AI chat about Sasi">
+        <i class="bi bi-chat-dots-fill" id="chat-fab-icon"></i>
+        <span class="chat-fab-badge">AI</span>
+      </button>
+    </div>
+
     <script src="purecounter/purecounter_vanilla.js" defer></script>
     <script src="aos/aos.js" defer></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js" defer></script>
